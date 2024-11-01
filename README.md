@@ -87,7 +87,7 @@ Evaluation focused on creativity, coherence, thematic depth, and stylistic consi
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the Meta's Llama 3.2 Community License.
 
 ## Citation
 
