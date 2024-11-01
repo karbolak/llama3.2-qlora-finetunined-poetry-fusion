@@ -39,7 +39,7 @@ These poets were chosen for their distinctive styles, themes, and emotional dept
 - **Developed by:** Natalie Mladenova, Karolina Kozikowska, Kajetan Karbowski
 - **Model Type:** Transformer-based language model, fine-tuned with LoRa
 - **Languages:** English
-- **License:** MIT License
+- **License:** Llama 3.2 Community License
 
 ### Model Sources
 - **Repository:** [TBD]
