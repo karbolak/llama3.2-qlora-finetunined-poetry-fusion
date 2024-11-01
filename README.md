@@ -4,7 +4,7 @@ tags:
 - lora
 - poetry
 - art
-license: mit
+license: llama3.2
 language:
 - en
 base_model:
@@ -62,48 +62,14 @@ For broader applicability, further fine-tuning with culturally diverse poetic da
 
 ## How to Get Started with the Model
 
-Use the following code snippet to begin generating poetry with the model:
-
-```python
-from transformers import pipeline
-
-generator = pipeline('text-generation', model='your-model-id')
-system_message = """
-You are an expert in poetry fusion, specializing in blending the distinct styles of two poets. Focus on emotional depth, unique metaphor usage, symbolic imagery, and rhythmic patterns. Your task is to merge not only technical elements like word choice and structure but also the deeper conceptual and emotional richness that define each poet's work.
-"""
-
-Poet_1, Poet_2 = "William Shakespeare", "Edgar Allan Poe"
-user_message = f"""
-Generate a new poem that fuses the styles of {Poet_1} and {Poet_2}. Combine their styles in the rest of the poem, merging their use of metaphor, rhythm, and tone. Make the poem to 150 words.
-"""
-
-prompt = f"{system_message}\nUser: {user_message}\nAssistant:"
-
-
-device = "cuda:0"
-
-# Custom decoding with temperature, top_p, and top_k for more creative output
-def generate_with_constraints(prompt, temperature=0.7, top_p=0.9, top_k=50):
-    inputs = tokenizer(prompt, return_tensors="pt").to("cuda:0")
-    outputs = model.generate(
-        **inputs,
-        max_new_tokens=256,
-        temperature=temperature,     # Added temperature for creativity
-        top_p=top_p,                 # Nucleus sampling
-        top_k=top_k,                 # Limit token selection for more focused choices
-        no_repeat_ngram_size=3,
-        num_beams=5                  # Beam search to enforce rhyme/meter constraints
-    )
-    return tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-# Now generate the poem with creativity-enhancing parameters
-poetry_output = generate_with_constraints(prompt, temperature=0.8, top_p=0.85, top_k=40)
-```
+You may find all necessary information about the model deployment in the Jupyter Notebook "Poetry_Fusion_using_Llama_3.2.ipynb".
 
 ## Training Details
 
+You may find all necessary information about the model training in the Jupyter Notebook "Poetry_Fusion_using_Llama_3.2.ipynb".
+
 ### Training Data
-The model was fine-tuned on a subset of a larger poetry dataset, which includes 524 English poems, with 227 poems specifically from our selected poets. This curated set allowed the model to focus on the unique attributes of each poet’s work while providing additional data for improved generalization.
+The model was fine-tuned on a subset of a larger poetry dataset "LLM_Dataset.csv" which may be found in the repository files. It includes 524 English poems, with 227 poems specifically from our selected poets. This curated set allowed the model to focus on the unique attributes of each poet’s work while providing additional data for improved generalization.
 
 ### Training Procedure
 To achieve high-quality output, the model was fine-tuned using the following parameters:
@@ -144,5 +110,3 @@ For questions or further information, please reach out to the authors:
 - **Natalie Mladenova** - n.mladenova@student.rug.nl
 - **Karolina Kozikowska** - k.kozikowska@student.rug.nl
 - **Kajetan Karbowski** - k.j.karbowski@student.rug.nl
-```
----
