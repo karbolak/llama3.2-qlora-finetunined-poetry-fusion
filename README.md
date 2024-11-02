@@ -42,8 +42,8 @@ These poets were chosen for their distinctive styles, themes, and emotional dept
 - **License:** Llama 3.2 Community License
 
 ### Model Sources
-- **Repository:** [TBD]
-- **Project Paper:** [TBD]
+- **Repository (the same, but initially submitted on huggingface):** https://huggingface.co/karbolak/llama3.2-qlora-finetunined-poetry-fusion/tree/main
+- **Project Paper:** Attached on brightspace.
 
 ## Uses
 
